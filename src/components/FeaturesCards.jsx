@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import tab1image from "../assets/images/illustration-features-tab-1.svg";
 import tab2image from "../assets/images/illustration-features-tab-2.svg";
 import tab3image from "../assets/images/illustration-features-tab-3.svg";
