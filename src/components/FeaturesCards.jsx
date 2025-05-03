@@ -39,6 +39,17 @@ export default function FeaturesCards() {
   }
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
+  useEffect(() => {
+    // Preload all images
+    tabs.forEach((tab) => {
+      const img = new Image();
+      img.src = tab.image;
+    });
+  }, [tabs]);
+  {
+    /* Could use [] instead of [tabs] */
+  }
+
   return (
     <section>
       <div className="px-[5%]">

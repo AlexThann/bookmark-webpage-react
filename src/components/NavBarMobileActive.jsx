@@ -3,9 +3,24 @@ import closeIcon from "../assets/images/icon-close.svg";
 import facebookLogo from "../assets/images/icon-facebook.svg";
 import twitterLogo from "../assets/images/icon-twitter.svg";
 import { motion, AnimatePresence } from "motion/react";
-import { div } from "motion/react-client";
+import { useEffect } from "react";
 
 export default function NavBarMobileActive({ isMobile, setIsMobile }) {
+  useEffect(() => {
+    if (isMobile) {
+      // Disable scrolling
+      document.body.style.overflow = "hidden";
+    } else {
+      // Re-enable scrolling
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMobile]);
+
   return (
     <AnimatePresence>
       {/*Animate presence watches over all motion.divs. Its for the animation when the mobile navbar is active */}
